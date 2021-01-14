@@ -22,3 +22,9 @@ struct Utils {
 
     }
 }
+
+public extension String {
+    public func letter(at: Int) -> Character {
+        self[self.index(self.startIndex, offsetBy: at)]
+    }
+}

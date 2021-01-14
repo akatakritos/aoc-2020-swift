@@ -28,8 +28,14 @@ struct PasswordPolicy: Equatable {
     }
 
     func evaluate(password: String) -> Bool {
-        var count = password.filter { $0 == letter }.count
+        let count = password.filter { $0 == letter }.count
         return count >= min && count <= max;
+    }
+
+    func evaluate2(password: String) -> Bool {
+        let letter0 = password.letter(at: min-1);
+        let letter1 = password.letter(at: max-1);
+        return letter0 != letter1 && (letter0 == letter || letter1 == letter)
     }
 }
 
@@ -39,6 +45,10 @@ struct PasswordTest: Equatable {
 
     func isValid() -> Bool {
         policy.evaluate(password: password)
+    }
+
+    func isValid2() -> Bool {
+        policy.evaluate2(password: password)
     }
 
     static func parse<T: StringProtocol>(_ s: T) -> PasswordTest? {
@@ -62,6 +72,9 @@ struct Puzzle02 {
 
         let validCount = tests.filter { $0.isValid() }.count
         print("There are \(validCount) valid passwords in the set")
+
+       let valid2Count = tests.filter { $0.isValid2() }.count
+       print("There are \(valid2Count) valid passwords under the new rules")
     }
 }
 
