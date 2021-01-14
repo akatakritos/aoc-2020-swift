@@ -8,5 +8,6 @@
 
 import Foundation
 
-Puzzle01.run();
+//Puzzle01.run();
+Puzzle02.run();
 
