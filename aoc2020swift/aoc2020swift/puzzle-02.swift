@@ -4,8 +4,6 @@
 
 import Foundation
 
-
-
 struct PasswordPolicy: Equatable {
     var letter: Character
     var min: Int

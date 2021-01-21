@@ -19,12 +19,16 @@ struct Utils {
             print("\(error)")
             return nil
         }
+    }
 
+    static func splitLines(_ input: String) -> [String] {
+        let lines = input.split(separator: "\n")
+        return lines.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
     }
 }
 
 public extension String {
-    public func letter(at: Int) -> Character {
+    func letter(at: Int) -> Character {
         self[self.index(self.startIndex, offsetBy: at)]
     }
 }
