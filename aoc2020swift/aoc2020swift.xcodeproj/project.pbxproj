@@ -48,6 +48,7 @@
 		3D330DF625B9CD01007D16EE /* puzzle-03.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "puzzle-03.txt"; sourceTree = "<group>"; };
 		3D4F91EA25BB173500CBD951 /* puzzle-04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "puzzle-04.swift"; sourceTree = "<group>"; };
 		3D4F91EE25BB1DDB00CBD951 /* Puzzle04Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle04Tests.swift; sourceTree = "<group>"; };
+		3D4F922825BB638300CBD951 /* puzzle-04.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "puzzle-04.txt"; sourceTree = "<group>"; };
 		8FA93245719137BCADF1AC6C /* puzzle-02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "puzzle-02.txt"; sourceTree = "<group>"; };
 		8FA932A93A177FC831A83DD3 /* puzzle-02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "puzzle-02.swift"; sourceTree = "<group>"; };
 		8FA9330EC8C2BB4E49C6DA1D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 				8FA93D4DA348A65E489F5105 /* puzzle-01.txt */,
 				8FA93245719137BCADF1AC6C /* puzzle-02.txt */,
 				3D330DF625B9CD01007D16EE /* puzzle-03.txt */,
+				3D4F922825BB638300CBD951 /* puzzle-04.txt */,
 			);
 			path = inputs;
 			sourceTree = "<group>";

@@ -20,9 +20,15 @@ struct SimpleRegex {
         }
 
         var groups: [String] = [];
-        for i in 0...(match.numberOfRanges-1) {
-            let r = Range(match.range(at: i), in: target)!
-            groups.append(String(target[r]))
+        for i in 0..<match.numberOfRanges {
+            let nsRange = match.range(at: i)
+
+            if (nsRange.location == NSNotFound) {
+                groups.append("")
+            } else {
+                let r = Range(nsRange, in: target)!
+                groups.append(String(target[r]))
+            }
         }
 
         return SimpleRegex(groups: groups)
