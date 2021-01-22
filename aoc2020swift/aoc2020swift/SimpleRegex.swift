@@ -33,4 +33,11 @@ struct SimpleRegex {
 
         return SimpleRegex(groups: groups)
     }
+
+    static func isMatch<T: StringProtocol>(pattern: String, target: T) -> Bool {
+        let range = NSRange(location: 0, length: target.utf16.count)
+        let regex = try! NSRegularExpression(pattern: pattern)
+        let match = regex.firstMatch(in: String(target), range: range)
+        return match != nil
+    }
 }

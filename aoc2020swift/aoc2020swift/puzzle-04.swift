@@ -87,7 +87,7 @@ struct Passport {
 
     }
 
-    var valid: Bool {
+    var complete: Bool {
         birthYear != nil
         && issueYear != nil
         && expirationYear != nil
@@ -96,6 +96,42 @@ struct Passport {
         && eyeColor != nil
         && passportId != nil
         // countryId not required
+    }
+
+    private func validHeight() -> Bool {
+        switch height {
+        case let (height: cms, unit: .centimeters)?: return cms >= 150 && cms <= 193
+        case let (height: inches, unit: .inches)?: return inches >= 59 && inches <= 76
+        default: return false
+        }
+    }
+
+    private func validHairColor() -> Bool {
+        guard let color = hairColor else { return false }
+        return SimpleRegex.isMatch(pattern: "^#[0-9a-f]{6}$", target: color)
+    }
+
+    private func validEyeColor() -> Bool {
+        switch eyeColor {
+        case "amb", "blu", "brn", "gry", "grn", "hzl", "oth": return true
+        default: return false
+        }
+    }
+
+    private func validPassport() -> Bool {
+        guard let id = passportId else { return false }
+        return SimpleRegex.isMatch(pattern: "^[0-9]{9}$", target: id)
+    }
+
+    var valid: Bool {
+
+        birthYear != nil && birthYear! >= 1920 && birthYear! <= 2002
+        && issueYear != nil && issueYear! >= 2010 && issueYear! <= 2020
+        && expirationYear != nil && expirationYear! >= 2020 && expirationYear! <= 2030
+        && validHeight()
+        && validHairColor()
+        && validEyeColor()
+        && validPassport()
     }
 }
 
