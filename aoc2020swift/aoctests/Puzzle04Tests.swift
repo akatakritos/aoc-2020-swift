@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import aoc2020swift
 
 class Puzzle04Tests: XCTestCase {
 
