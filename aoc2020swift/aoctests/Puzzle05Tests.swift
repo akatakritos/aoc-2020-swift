@@ -27,4 +27,22 @@ class Puzzle05Tests: XCTestCase {
 
     }
 
+    func testPart2() {
+        let seats = Utils.readLines("puzzle-05")!
+            .lazy
+            .map { SeatId(id: $0).seatNumber() }
+            .sorted()
+
+        var seatId: Int? = nil
+        for i in 1..<(seats.count-1) {
+            let test = seats[i]
+            if seats[i+1] > test + 1 {
+                seatId = test + 1
+                break
+            }
+        }
+
+        XCTAssertEqual(seatId, 696)
+    }
+
 }

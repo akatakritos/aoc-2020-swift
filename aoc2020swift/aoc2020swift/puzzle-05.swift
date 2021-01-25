@@ -34,21 +34,13 @@ enum SeatInstruction {
 }
 
 struct SeatId<T: StringProtocol> {
-    let id: T
     private let seatInstructions: [SeatInstruction]
     private let rowInstructions: [RowInstruction]
 
     init (id: T) {
         assert(id.count == 10)
-
-        self.id = id
-
-        let switchPoint = id.index(id.startIndex, offsetBy: 7)
-        self.rowInstructions = id[..<switchPoint].map { RowInstruction.parse($0)! }
-        self.seatInstructions = id[switchPoint...].map { SeatInstruction.parse($0)! }
-
-        assert(rowInstructions.count == 7)
-        assert(seatInstructions.count == 3)
+        self.rowInstructions = id.prefix(7).map { RowInstruction.parse($0)! }
+        self.seatInstructions = id.suffix(3).map { SeatInstruction.parse($0)! }
     }
 
     func seatNumber() -> Int {
@@ -66,7 +58,6 @@ struct SeatId<T: StringProtocol> {
         case .left: return evaluateSeat(min: min, max: midpoint, at: index + 1)
         case .right: return evaluateSeat(min: midpoint + 1, max: max, at: index + 1)
         }
-
     }
 
 
