@@ -8,8 +8,8 @@
 
 import Foundation
 
-//Puzzle01.run();
-//Puzzle02.run();
+Puzzle01.run();
+Puzzle02.run();
 Puzzle03.run();
 
 
