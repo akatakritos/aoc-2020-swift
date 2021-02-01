@@ -2,3 +2,4 @@
 
 Practicing swift by doing the 2020 advent of code.
 
+One file per day
